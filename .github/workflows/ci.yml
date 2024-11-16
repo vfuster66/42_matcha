@@ -33,29 +33,43 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2. Set up Node.js environment
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      # 2. Debug: Verify files and directories
+      - name: "Debug: Verify files"
+        run: ls -R
 
       # 3. Install pnpm
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: npm install -g pnpm@latest
 
-      # 4. Install dependencies
+      # 4. Debug: Verify pnpm version
+      - name: "Debug: Check pnpm version"
+        run: pnpm --version
+
+      # 5. Install dependencies
       - name: Install dependencies
         run: pnpm install
 
-      # 5. Configure environment variables for tests
+      # 6. Debug: Verify package.json
+      - name: "Debug: Verify package.json"
+        run: cat package.json
+
+      # 7. Debug: List available scripts
+      - name: "Debug: List available scripts"
+        run: pnpm run
+
+      # 8. Set environment variables
       - name: Set environment variables
         run: echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/matcha_test" >> $GITHUB_ENV
 
-      # 6. Initialize database schema
+      # 9. Initialize database schema
       - name: Initialize database schema
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f ./db/schema.sql
 
-      # 7. Run tests
+      # 10. Debug: Run test script
+      - name: "Debug: Run tests"
+        run: pnpm run test || echo "Script test failed"
+
+      # 11. Run tests
       - name: Run tests
         run: NODE_ENV=test pnpm test
