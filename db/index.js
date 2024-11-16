@@ -1,19 +1,24 @@
 import pkg from 'pg';
 import dotenv from 'dotenv';
+import fs from 'fs';
 
-dotenv.config(); // Charge les variables d'environnement
+// Charge le bon fichier .env
+const envFile = process.env.NODE_ENV === 'test' ? '.env.test' : '.env';
+if (fs.existsSync(envFile)) {
+  dotenv.config({ path: envFile });
+} else {
+  console.warn(`Fichier ${envFile} introuvable, utilisant les variables d'environnement par défaut.`);
+}
 
 const { Pool } = pkg;
 
-// Détecte l'environnement pour définir les paramètres de connexion
-const isTestEnv = process.env.NODE_ENV === 'test';
-
+// Configure les paramètres de connexion
 const pool = new Pool({
-  user: process.env.DB_USER || (isTestEnv ? 'test_user' : 'postgres'),
-  host: process.env.DB_HOST || 'localhost',
-  database: process.env.DB_NAME || (isTestEnv ? 'matcha_test' : 'matcha'),
-  password: process.env.DB_PASSWORD || 'Perpignan66!!',
-  port: process.env.DB_PORT || 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // Vérification de la connexion
@@ -26,7 +31,5 @@ const pool = new Pool({
     process.exit(1);
   }
 })();
-
-console.log('Base de données connectée :', process.env.DB_NAME);
 
 export default pool;

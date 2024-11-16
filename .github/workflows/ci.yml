@@ -49,11 +49,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      # 6. Configure PostgreSQL user and permissions
-      - name: Configure PostgreSQL
+      # Configure PostgreSQL
+      - name: Configure PostgreSQL roles and permissions
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE USER test_user WITH PASSWORD 'password';"
           PGPASSWORD=postgres psql -h localhost -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE matcha_test TO test_user;"
+          PGPASSWORD=postgres psql -h localhost -U postgres -c "GRANT postgres TO test_user;"
 
       # 7. Debug: Verify package.json
       - name: Verify package.json
