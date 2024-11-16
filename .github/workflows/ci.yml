@@ -39,19 +39,23 @@ jobs:
         with:
           node-version: 16  # Version de Node.js à utiliser
 
-      # 3. Install dependencies
+      # 3. Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      # 4. Install dependencies
       - name: Install dependencies
         run: pnpm install
 
-      # 4. Configure environment variables for tests
+      # 5. Configure environment variables for tests
       - name: Set environment variables
         run: echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/matcha_test" >> $GITHUB_ENV
 
-      # 5. Initialize database schema
+      # 6. Initialize database schema
       - name: Initialize database schema
         run: |
           PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f path/to/schema.sql
 
-      # 6. Run tests
+      # 7. Run tests
       - name: Run tests
         run: pnpm test
