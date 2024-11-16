@@ -3,10 +3,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main  # Exécuter la pipeline sur les commits sur la branche "main"
+      - main
   pull_request:
     branches:
-      - main  # Exécuter la pipeline sur les pull requests vers la branche "main"
+      - main
 
 jobs:
   test:
@@ -15,7 +15,7 @@ jobs:
 
     services:
       postgres:
-        image: postgres:14  # Image Docker de PostgreSQL
+        image: postgres:14
         ports:
           - 5432:5432
         env:
@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18  # Version de Node.js à utiliser
+          node-version: 18
 
       # 3. Install pnpm
       - name: Install pnpm
@@ -54,8 +54,8 @@ jobs:
       # 6. Initialize database schema
       - name: Initialize database schema
         run: |
-          PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f path/to/schema.sql
+          PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f ./db/schema.sql
 
       # 7. Run tests
       - name: Run tests
-        run: pnpm test
+        run: NODE_ENV=test pnpm test
