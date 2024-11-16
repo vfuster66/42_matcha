@@ -1,0 +1,57 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Exécuter la pipeline sur les commits sur la branche "main"
+  pull_request:
+    branches:
+      - main  # Exécuter la pipeline sur les pull requests vers la branche "main"
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:14  # Image Docker de PostgreSQL
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: matcha_test
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      # 1. Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2. Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Version de Node.js à utiliser
+
+      # 3. Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+
+      # 4. Configure environment variables for tests
+      - name: Set environment variables
+        run: echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/matcha_test" >> $GITHUB_ENV
+
+      # 5. Initialize database schema
+      - name: Initialize database schema
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f path/to/schema.sql
+
+      # 6. Run tests
+      - name: Run tests
+        run: pnpm test
