@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: blocked_users; Type: TABLE; Schema: public; Owner: virginie
+-- Name: blocked_users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS blocked_users (
@@ -34,10 +34,10 @@ CREATE TABLE IF NOT EXISTS blocked_users (
 );
 
 
-ALTER TABLE public.blocked_users OWNER TO virginie;
+ALTER TABLE public.blocked_users OWNER TO postgres;
 
 --
--- Name: blocked_users_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: blocked_users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.blocked_users_id_seq
@@ -49,17 +49,17 @@ CREATE SEQUENCE public.blocked_users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.blocked_users_id_seq OWNER TO virginie;
+ALTER TABLE public.blocked_users_id_seq OWNER TO postgres;
 
 --
--- Name: blocked_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: blocked_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.blocked_users_id_seq OWNED BY public.blocked_users.id;
 
 
 --
--- Name: likes; Type: TABLE; Schema: public; Owner: virginie
+-- Name: likes; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.likes (
@@ -70,10 +70,10 @@ CREATE TABLE IF NOT EXISTS public.likes (
 );
 
 
-ALTER TABLE public.likes OWNER TO virginie;
+ALTER TABLE public.likes OWNER TO postgres;
 
 --
--- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.likes_id_seq
@@ -85,17 +85,17 @@ CREATE SEQUENCE public.likes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.likes_id_seq OWNER TO virginie;
+ALTER TABLE public.likes_id_seq OWNER TO postgres;
 
 --
--- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.likes_id_seq OWNED BY public.likes.id;
 
 
 --
--- Name: messages; Type: TABLE; Schema: public; Owner: virginie
+-- Name: messages; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.messages (
@@ -107,10 +107,10 @@ CREATE TABLE IF NOT EXISTS public.messages (
 );
 
 
-ALTER TABLE public.messages OWNER TO virginie;
+ALTER TABLE public.messages OWNER TO postgres;
 
 --
--- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: messages_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.messages_id_seq
@@ -122,17 +122,17 @@ CREATE SEQUENCE public.messages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.messages_id_seq OWNER TO virginie;
+ALTER TABLE public.messages_id_seq OWNER TO postgres;
 
 --
--- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: messages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.messages_id_seq OWNED BY public.messages.id;
 
 
 --
--- Name: notifications; Type: TABLE; Schema: public; Owner: virginie
+-- Name: notifications; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.notifications (
@@ -145,10 +145,10 @@ CREATE TABLE IF NOT EXISTS public.notifications (
 );
 
 
-ALTER TABLE public.notifications OWNER TO virginie;
+ALTER TABLE public.notifications OWNER TO postgres;
 
 --
--- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.notifications_id_seq
@@ -160,17 +160,17 @@ CREATE SEQUENCE public.notifications_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notifications_id_seq OWNER TO virginie;
+ALTER TABLE public.notifications_id_seq OWNER TO postgres;
 
 --
--- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.notifications_id_seq OWNED BY public.notifications.id;
 
 
 --
--- Name: photos; Type: TABLE; Schema: public; Owner: virginie
+-- Name: photos; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.photos (
@@ -181,10 +181,10 @@ CREATE TABLE IF NOT EXISTS public.photos (
 );
 
 
-ALTER TABLE public.photos OWNER TO virginie;
+ALTER TABLE public.photos OWNER TO postgres;
 
 --
--- Name: photos_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: photos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.photos_id_seq
@@ -196,17 +196,17 @@ CREATE SEQUENCE public.photos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.photos_id_seq OWNER TO virginie;
+ALTER TABLE public.photos_id_seq OWNER TO postgres;
 
 --
--- Name: photos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: photos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.photos_id_seq OWNED BY public.photos.id;
 
 
 --
--- Name: profiles; Type: TABLE; Schema: public; Owner: virginie
+-- Name: profiles; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.profiles (
@@ -221,10 +221,10 @@ CREATE TABLE IF NOT EXISTS public.profiles (
 );
 
 
-ALTER TABLE public.profiles OWNER TO virginie;
+ALTER TABLE public.profiles OWNER TO postgres;
 
 --
--- Name: profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: profiles_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.profiles_id_seq
@@ -236,17 +236,17 @@ CREATE SEQUENCE public.profiles_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.profiles_id_seq OWNER TO virginie;
+ALTER TABLE public.profiles_id_seq OWNER TO postgres;
 
 --
--- Name: profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: profiles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.profiles_id_seq OWNED BY public.profiles.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: virginie
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE IF NOT EXISTS public.users (
@@ -260,10 +260,10 @@ CREATE TABLE IF NOT EXISTS public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO virginie;
+ALTER TABLE public.users OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: virginie
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
 CREATE SEQUENCE public.users_id_seq
@@ -275,66 +275,66 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO virginie;
+ALTER TABLE public.users_id_seq OWNER TO postgres;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: virginie
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- Name: blocked_users id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: blocked_users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocked_users ALTER COLUMN id SET DEFAULT nextval('public.blocked_users_id_seq'::regclass);
 
 
 --
--- Name: likes id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: likes id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.likes ALTER COLUMN id SET DEFAULT nextval('public.likes_id_seq'::regclass);
 
 
 --
--- Name: messages id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: messages id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.messages ALTER COLUMN id SET DEFAULT nextval('public.messages_id_seq'::regclass);
 
 
 --
--- Name: notifications id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: notifications id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.notifications ALTER COLUMN id SET DEFAULT nextval('public.notifications_id_seq'::regclass);
 
 
 --
--- Name: photos id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: photos id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.photos ALTER COLUMN id SET DEFAULT nextval('public.photos_id_seq'::regclass);
 
 
 --
--- Name: profiles id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: profiles id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.profiles ALTER COLUMN id SET DEFAULT nextval('public.profiles_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: virginie
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
--- Name: blocked_users blocked_users_blocker_id_blocked_id_key; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: blocked_users blocked_users_blocker_id_blocked_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocked_users
@@ -342,7 +342,7 @@ ALTER TABLE ONLY public.blocked_users
 
 
 --
--- Name: blocked_users blocked_users_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: blocked_users blocked_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocked_users
@@ -350,7 +350,7 @@ ALTER TABLE ONLY public.blocked_users
 
 
 --
--- Name: likes likes_liker_id_liked_id_key; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: likes likes_liker_id_liked_id_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.likes
@@ -358,7 +358,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: likes likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.likes
@@ -366,7 +366,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: messages messages_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.messages
@@ -374,7 +374,7 @@ ALTER TABLE ONLY public.messages
 
 
 --
--- Name: notifications notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: notifications notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.notifications
@@ -382,7 +382,7 @@ ALTER TABLE ONLY public.notifications
 
 
 --
--- Name: photos photos_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: photos photos_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.photos
@@ -390,7 +390,7 @@ ALTER TABLE ONLY public.photos
 
 
 --
--- Name: profiles profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: profiles profiles_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.profiles
@@ -398,7 +398,7 @@ ALTER TABLE ONLY public.profiles
 
 
 --
--- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: users users_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -406,7 +406,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -414,7 +414,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: virginie
+-- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.users
@@ -422,7 +422,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: blocked_users blocked_users_blocked_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: blocked_users blocked_users_blocked_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocked_users
@@ -430,7 +430,7 @@ ALTER TABLE ONLY public.blocked_users
 
 
 --
--- Name: blocked_users blocked_users_blocker_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: blocked_users blocked_users_blocker_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.blocked_users
@@ -438,7 +438,7 @@ ALTER TABLE ONLY public.blocked_users
 
 
 --
--- Name: likes likes_liked_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: likes likes_liked_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.likes
@@ -446,7 +446,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- Name: likes likes_liker_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: likes likes_liker_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.likes
@@ -454,7 +454,7 @@ ALTER TABLE ONLY public.likes
 
 
 --
--- Name: messages messages_receiver_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: messages messages_receiver_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.messages
@@ -462,7 +462,7 @@ ALTER TABLE ONLY public.messages
 
 
 --
--- Name: messages messages_sender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: messages messages_sender_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.messages
@@ -470,7 +470,7 @@ ALTER TABLE ONLY public.messages
 
 
 --
--- Name: notifications notifications_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: notifications notifications_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.notifications
@@ -478,7 +478,7 @@ ALTER TABLE ONLY public.notifications
 
 
 --
--- Name: photos photos_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: photos photos_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.photos
@@ -486,7 +486,7 @@ ALTER TABLE ONLY public.photos
 
 
 --
--- Name: profiles profiles_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: virginie
+-- Name: profiles profiles_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.profiles

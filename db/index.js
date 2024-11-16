@@ -9,7 +9,7 @@ const { Pool } = pkg;
 const isTestEnv = process.env.NODE_ENV === 'test';
 
 const pool = new Pool({
-  user: process.env.DB_USER || (isTestEnv ? 'test_user' : 'virginie'),
+  user: process.env.DB_USER || (isTestEnv ? 'test_user' : 'postgres'),
   host: process.env.DB_HOST || 'localhost',
   database: process.env.DB_NAME || (isTestEnv ? 'matcha_test' : 'matcha'),
   password: process.env.DB_PASSWORD || 'Perpignan66!!',
