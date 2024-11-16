@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v3
 
       # 2. Debug: Verify files and directories
-      - name: "Debug: Verify files"
+      - name: Verify files
         run: ls -R
 
       # 3. Install pnpm
@@ -42,34 +42,46 @@ jobs:
         run: npm install -g pnpm@latest
 
       # 4. Debug: Verify pnpm version
-      - name: "Debug: Check pnpm version"
+      - name: Check pnpm version
         run: pnpm --version
 
       # 5. Install dependencies
       - name: Install dependencies
         run: pnpm install
 
-      # 6. Debug: Verify package.json
-      - name: "Debug: Verify package.json"
+      # 6. Configure PostgreSQL user and permissions
+      - name: Configure PostgreSQL
+        run: |
+          PGPASSWORD=postgres psql -h localhost -U postgres -c "CREATE USER test_user WITH PASSWORD 'password';"
+          PGPASSWORD=postgres psql -h localhost -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE matcha_test TO test_user;"
+
+      # 7. Debug: Verify package.json
+      - name: Verify package.json
         run: cat package.json
 
-      # 7. Debug: List available scripts
-      - name: "Debug: List available scripts"
+      # 8. Debug: List available scripts
+      - name: List available scripts
         run: pnpm run
 
-      # 8. Set environment variables
+      # 9. Set environment variables
       - name: Set environment variables
-        run: echo "DATABASE_URL=postgres://postgres:postgres@localhost:5432/matcha_test" >> $GITHUB_ENV
+        run: |
+          echo "DATABASE_URL=postgres://test_user:password@localhost:5432/matcha_test" >> $GITHUB_ENV
+          echo "DB_USER=test_user" >> $GITHUB_ENV
+          echo "DB_PASSWORD=password" >> $GITHUB_ENV
+          echo "DB_NAME=matcha_test" >> $GITHUB_ENV
+          echo "DB_HOST=localhost" >> $GITHUB_ENV
+          echo "DB_PORT=5432" >> $GITHUB_ENV
 
-      # 9. Initialize database schema
+      # 10. Initialize database schema
       - name: Initialize database schema
         run: |
-          PGPASSWORD=postgres psql -h localhost -U postgres -d matcha_test -f ./db/schema.sql
+          PGPASSWORD=password psql -h localhost -U test_user -d matcha_test -f ./db/schema.sql
 
-      # 10. Debug: Run test script
-      - name: "Debug: Run tests"
+      # 11. Debug: Run test script
+      - name: Run tests with debug
         run: pnpm run test || echo "Script test failed"
 
-      # 11. Run tests
+      # 12. Run tests
       - name: Run tests
         run: NODE_ENV=test pnpm test
